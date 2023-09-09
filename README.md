@@ -11,7 +11,7 @@ Create a user in parabank.parasoft.com, which is a bank demo website.
 
 For the request test examples, I will use this server documented in swagger: https://petstore.swagger.io/#/
 
-Create a project and run the next commands:
+Create a project and run the  next commands:
 
 ```
 1. npm init
