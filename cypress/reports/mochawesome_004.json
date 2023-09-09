@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-09-09T16:46:38.432Z",
+    "end": "2023-09-09T16:46:39.903Z",
+    "duration": 1471,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "007b2142-7f9a-4ec8-b368-d77f1981524c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Login\\petStore.spec.cy.js",
+      "file": "cypress\\e2e\\Login\\petStore.spec.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6b7dc3aa-a0e3-4e1c-a453-e638b2281849",
+          "title": "Petstore request",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Print values form fixture",
+              "fullTitle": "Petstore request Print values form fixture",
+              "timedOut": null,
+              "duration": 165,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.log(this.user);\ncy.log(this.user.username);\ncy.log(this.user.password);",
+              "err": {},
+              "uuid": "27b76346-b982-4d95-840d-3c63b969198c",
+              "parentUUID": "6b7dc3aa-a0e3-4e1c-a453-e638b2281849",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create user with request and fixture",
+              "fullTitle": "Petstore request Create user with request and fixture",
+              "timedOut": null,
+              "duration": 714,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"createUserBody\").then(json => {\n  cy.request(\"POST\", `${BASE_URL}/user`, json).then(resp => {\n    expect(resp.status).to.eq(200);\n  });\n});",
+              "err": {},
+              "uuid": "633d5519-be21-4f45-9755-b64d95c571ad",
+              "parentUUID": "6b7dc3aa-a0e3-4e1c-a453-e638b2281849",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login with username and password ",
+              "fullTitle": "Petstore request Login with username and password ",
+              "timedOut": null,
+              "duration": 252,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const option = {\n  method: \"GET\",\n  url: `${BASE_URL}/user/login`,\n  qs: `login?username=${this.user.username}&password=${this.user.password}`\n};\ncy.request(option).as(\"resp\");\ncy.get(\"@resp\").should(response => {\n  expect(response.status).to.eq(200);\n  expect(response).to.have.property(\"headers\");\n});\ncy.log(\"@resp\");",
+              "err": {},
+              "uuid": "2c62fca4-28ac-4830-970b-69a577ef5a23",
+              "parentUUID": "6b7dc3aa-a0e3-4e1c-a453-e638b2281849",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "27b76346-b982-4d95-840d-3c63b969198c",
+            "633d5519-be21-4f45-9755-b64d95c571ad",
+            "2c62fca4-28ac-4830-970b-69a577ef5a23"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1131,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": "false",
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
